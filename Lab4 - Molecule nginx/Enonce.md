@@ -58,9 +58,18 @@
 6. Poussez votre role nginx mis à jour sur github. Le rôle sera nommé **ansible_role_nginx**.
   **PS:** Il faudrait rajouter **uniquement** le rôle, rien de plus.
     ```shell
+      git init
       git add Readme default/ taks/ vars/ ...
-      git commit -m "message"
-      git remote add origin https://your_role_url.git
-      git push origin master
+      git status 
+      git commit -m "first commit"
+      git config --global user.email "mail@doamin.com"
+      git config --global user.name "nom github"
+      git commit -m "first commit"
+      git branch
+      git branch -M main 
+      git branch
+      cat ~/.ssh/id_rsa.pub 
+      git remote add origin git@github.com:<votre_identifiant_github>/ansible_role_nginx.git 
+      git push origin main
     ```  
 
