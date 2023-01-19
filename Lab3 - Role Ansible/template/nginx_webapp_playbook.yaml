@@ -11,7 +11,7 @@
   
   # Roles: list of roles to be imported into the play 
   roles:
-    - { role: <FIX IT>, target_dir: "{%- if ansible_distribution == 'CentOS' -%}/usr/share/nginx/html{%- elif ansible_distribution == 'Ubuntu' -%}/var/www/html{%- endif %}" }
+    - { role: **"FIX IT"**, target_dir: "{%- if ansible_distribution == 'CentOS' -%}/usr/share/nginx/html{%- elif ansible_distribution == 'Ubuntu' -%}/var/www/html{%- endif %}" }
 
 # Three dots indicate the end of a YAML document
 ...
