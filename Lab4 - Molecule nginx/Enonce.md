@@ -33,12 +33,13 @@
     → A ce stade, un dossier molecule sera créé dans votre role nginx, avec les fichiers adéquats
 
 4. Veuillez à tester votre rôle sur un OS **CentOs** et **Ubuntu**
-      → editer le fichier **molecule.yml** en rajoutant le contenu de **molecule.yml** donné avec l'énoncé.
-      → Dans la section **galaxy_info** du fichier **meta/main.yml** du role nginx, rajouter les paramètres suivants:
+
+     - Editer le fichier **molecule.yml** en rajoutant le contenu de **molecule.yml** → il est donné avec l'énoncé.
+     - Dans la section **galaxy_info** du fichier **meta/main.yml** du role nginx, rajouter les paramètres suivants:
 
     ```yaml
-          role_name: nginx
-          namespace: ulrichmonji
+          role_name: "nginx"
+          namespace: "votre namespace ansible galaxy"
     ```
 
 5. Exécutez molecule et vérifiez que tout fonctionne
@@ -48,19 +49,18 @@
       docker ps -a # Pour vérifier que les containers ont été créé
       molecule converge # Pour lancer le role sur les infra de test
     ```
-    → Ensuite, éditer le fichier **verify.yml** en rajoutant le contenu de **verify.yml** donné avec l'énoncé, puis exécuter le test comme suit:
-    ```shell
-      cd /home/ansible/ansible-expert-training/lab-3/template/nginx
-      molecule list # Pour lister l'état 
-      molecule test # Pour lancer les tests
-    ```  
-6. Poussez votre role nginx mis à jour sur github
-  nom du role: **ansible_role_nginx**
-  il faudrait rajouter uniquement le rôle
+    - Ensuite, éditer le fichier **verify.yml** en rajoutant le contenu de **verify.yml** donné avec l'énoncé, puis exécuter le test comme suit:
+      ```shell
+        cd /home/ansible/ansible-expert-training/lab-3/template/nginx
+        molecule list # Pour lister l'état 
+        molecule test # Pour lancer les tests
+      ```  
+6. Poussez votre role nginx mis à jour sur github. Le rôle sera nommé **ansible_role_nginx**.
+  **PS:** Il faudrait rajouter **uniquement** le rôle, rien de plus.
     ```shell
       git add Readme default/ taks/ vars/ ...
       git commit -m "message"
-      git remote add origin url
+      git remote add origin https://your_role_url.git
       git push origin master
     ```  
 
