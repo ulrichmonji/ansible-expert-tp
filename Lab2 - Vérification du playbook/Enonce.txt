@@ -1,0 +1,5 @@
+1. Utilisez le playbook suivant afin de deployer l’application du client
+    Il est contenu dans "projet-ansible"
+
+2. Vérifiez que l’application est disponible en utilisant le reverse proxy 
+    sur chacun de vos clients ansible

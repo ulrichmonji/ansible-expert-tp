@@ -1,0 +1,11 @@
+1 - Déployez une VM (8 Go) de préference dans le Cloud
+2 - Installez git, docker et docker-compose
+3 - Recupérez le code de l’infra se trouvant sur github: 
+    url: https://github.com/diranetafen/diveintoansible-lab
+4 - Modifiez le fichier docker-compose.yml afin de rajouter la variable d’environnement
+    LOCALHOST_OVERRIDE=X.X.X.X (en remplaçant X.X.X.X par   l'adresse IP de votre VM)
+    Ne pas oublier d'adapter les variables ANSIBLE_HOME=/home/ec2-user/james/diveintoansible-lab/ansible_home et
+    ANSIBLE_HOME=/home/ec2-user/james/diveintoansible-lab/ansible_home dans le fichier .env
+5 - Lancez la stack
+    docker-compose up -d
+6 - Visitez la page <ip>:1000
