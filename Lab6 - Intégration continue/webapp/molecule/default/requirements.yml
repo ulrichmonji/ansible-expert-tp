@@ -1,0 +1,5 @@
+---
+- role: nginx
+  src: https://github.com/ulrichmonji/ansible-role_nginx.git
+  version: main
+  scm: git
