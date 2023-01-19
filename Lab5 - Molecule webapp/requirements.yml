@@ -1,0 +1,5 @@
+---
+- role: nginx
+  src: < url_de_votre_role_nginx >
+  version: main
+  scm: git
