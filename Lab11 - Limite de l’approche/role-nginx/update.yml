@@ -1,0 +1,31 @@
+name: update collection
+
+'on':
+  push:
+    branches:
+      - main
+
+jobs:
+
+  update:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: retrieve collection code and update submodule
+        run: |
+          git clone https://github.com/ulrichmonji/ansible-collection_webapp.git
+          cd ansible-collection_webapp
+          git submodule update --init --recursive
+          cd roles/nginx
+          git pull origin main
+          cd ../..
+          git add .
+          git config --global user.email "email@toto.com"
+          git config --global user.name "pseudo_git"
+          git commit -m "update role nginx commit ${{ github.sha }}"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.ANSIBLE_TOKEN }}
+          branch: main
+          directory: ansible-collection_webapp
+          repository: ulrichmonji/ansible-collection_webapp
