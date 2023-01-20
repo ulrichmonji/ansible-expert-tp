@@ -1,0 +1,28 @@
+name: Releases
+
+on: 
+  push:
+    tags:
+    - '*'
+permissions: write-all
+
+jobs:
+
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: Checkout submodules
+      run: git submodule update --init --recursive
+    - name: Set up Python 3.
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+    - name: Install test dependencies.
+      run: pip3 install ansible
+    - name: create collection
+      run: ansible-galaxy collection build
+    - uses: ncipollo/release-action@v1
+      with:
+        artifacts: "*.tar.gz"
+        token: ${{ secrets.GITHUB_TOKEN }}
