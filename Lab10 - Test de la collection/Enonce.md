@@ -20,5 +20,14 @@
     git push origin tag 1.0.0
     ```    
 2. Lancez le playbook et vérifiez que l’application se déploie correctement
-3. Poussez votre dossier de playbook sur github
+    ```bash
+    vi nginx_webapp_playbook.yml
+    ansible-playbook nginx_webapp_playbook.yml
+    ```    
+3. Poussez votre dossier de playbook (projet ansible) sur github, dans un nouveau repo appelé ansible-webapp. Il contiendra :
+    - le dossier collection
+    - le ansible.cfg
+    - les host_vars et group_vars
+    - Le playbook
+    - le fichier host
 4. Bravo ! Maintenant on va passer à l’industrialisation du déploiement
