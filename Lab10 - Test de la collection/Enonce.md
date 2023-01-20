@@ -5,7 +5,8 @@
     vi collections/requirements.yml
     ansible-galaxy install -r collections/requirements.yml
     ```
-    Puisque le fichier **manifest.json** est absent, ansible ne considère pas celà comme une collection, il faut donc refaire la release
+    Puisque le fichier **manifest.json** est absent, ansible ne considère pas celà comme une collection, il faut donc refaire la release.
+    Retourner sur le repos git de votre collection et modifier son Pipeline afin de créer une nouvelle release qui va embarquer le manifeste.json
     ```bash
     cd ansible-collection-webapp
     cd ulrichmonji/webapp
@@ -19,12 +20,16 @@
     git tag
     git push origin tag 1.0.0
     ```    
-2. Lancez le playbook et vérifiez que l’application se déploie correctement
+2. Retourner dans votre projet ansible et lancez le playbook, puis vérifiez que l’application se déploie correctement
     ```bash
+    cd project-ansible
+    ansible-galaxy install -r collections/requirements.yml
+
+    # téléchargement de la collection -- cette fois ça devrait fonctionner
     vi nginx_webapp_playbook.yml
     ansible-playbook nginx_webapp_playbook.yml
     ```    
-3. Poussez votre dossier de playbook (projet ansible) sur github, dans un nouveau repo appelé ansible-webapp. Il contiendra :
+3. Poussez votre dossier de playbook (projet ansible) sur github, dans un nouveau repo appelé **ansible-webapp**. Il contiendra :
     - le dossier collection
     - le ansible.cfg
     - les host_vars et group_vars
