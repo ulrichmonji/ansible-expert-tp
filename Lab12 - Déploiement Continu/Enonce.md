@@ -1,5 +1,7 @@
 1. Créez un Job qui permettra de deployer l’application se trouvant sur github (repos **ansible-webapp**)
     - N'oublier pas de créer un secret de type machine pour l'accès ssh
+      - login: ansible
+      - mdp: password
 
 2. Testez votre job graphiquement etvalidez qu'il est fonctionnel.
 
@@ -14,6 +16,5 @@
         - **ANSIBLE_PASSWORD**: password
     - Vous être libre de proposer un autre pipeline :-)
    
-    
 5. Testez et amusez-vous !
 
