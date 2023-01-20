@@ -4,11 +4,12 @@ on:
   push:
     tags:
     - '*'
+permissions: write-all
 
 jobs:
 
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
     - name: Checkout submodules
